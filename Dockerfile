@@ -1,9 +1,9 @@
-FROM frolvlad/alpine-glibc:alpine-3.8_glibc-2.28
+FROM frolvlad/alpine-glibc:alpine-3.10_glibc-2.29
 
 ARG ANDROID_TARGET_SDK=28
 ARG ANDROID_BUILD_TOOLS=28.0.3
 ARG ANDROID_SDK_TOOLS=4333796
-ARG SONAR_CLI=3.3.0.1492
+ARG SONAR_CLI=4.0.0.1744
 
 ENV ANDROID_HOME=${PWD}/android-sdk-linux
 ENV PATH=${PATH}:${ANDROID_HOME}/platform-tools

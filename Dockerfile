@@ -13,13 +13,14 @@ ENV PATH=${PATH}:${ANDROID_NDK}
 ENV PATH=${PATH}:/root/gcloud/google-cloud-sdk/bin
 ENV PATH=${PATH}:/root/sonar/bin
 
-RUN apk --no-cache add openjdk8 unzip python2 py2-pip \
+RUN apk --no-cache add bash wget gnupg openjdk8 unzip git curl python2 py2-pip bzip2 \
  && pip install --upgrade pip setuptools \
+ && update-ca-certificates \
  && pip install -U setuptools \
  && pip install -U wheel \
  && pip install -U crcmod
 # gcloud
-RUN wget -q -O - https://sdk.cloud.google.com > /tmp/gcl && bash /tmp/gcl --install-dir=/root/gcloud --disable-prompts \
+RUN curl -sSL https://sdk.cloud.google.com > /tmp/gcl && bash /tmp/gcl --install-dir=/root/gcloud --disable-prompts \
  && rm -rf /tmp/gcl
 # Sonar
 RUN wget -q -O sonar.zip https://binaries.sonarsource.com/Distribution/sonar-scanner-cli/sonar-scanner-cli-${SONAR_CLI}-linux.zip \

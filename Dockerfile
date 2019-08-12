@@ -13,7 +13,7 @@ ENV PATH=${PATH}:${ANDROID_NDK}
 ENV PATH=${PATH}:/root/gcloud/google-cloud-sdk/bin
 ENV PATH=${PATH}:/root/sonar/bin
 
-RUN apk --no-cache add bash openjdk8 unzip python2 py2-pip \
+RUN apk --no-cache add openjdk8 unzip python2 py2-pip \
  && pip install --upgrade pip setuptools \
  && pip install -U setuptools \
  && pip install -U wheel \

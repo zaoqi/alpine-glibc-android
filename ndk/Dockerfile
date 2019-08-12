@@ -39,7 +39,7 @@ RUN wget -q -O android-sdk.zip https://dl.google.com/android/repository/sdk-tool
 # NDK
 RUN wget -q -O android-ndk.zip https://dl.google.com/android/repository/android-ndk-${ANDROID_NDK_TOOLS}-linux-x86_64.zip \
  && unzip -qo android-ndk.zip \
- && rm android-ndk.zip \
+ && rm android-ndk.zip
 # Config
 RUN mkdir -p ~/.gradle \
  && echo "org.gradle.daemon=false" >> ~/.gradle/gradle.properties \
